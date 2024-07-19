@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://neet.ntaonline.in/frontend/web/scorecard/index -->
+<html lang="en-US" class="h-100"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://neet.ntaonline.in/frontend/web/images/nta-logo.png">
+        <title></title>
+    <meta name="csrf-param" content="_csrf-frontend">
+<meta name="csrf-token" content="FZsKRUvE0BDSQYU6H6Du5EpycmtGbwLzIaSQQx3SQacjzjICGojjR6svtUxt1YORCF8DDQQcM59Yy6UHWJkw9Q==">
+
+<link href="./result_files/simple-loading.min.css" rel="stylesheet">
+<link href="./result_files/bootstrap.css" rel="stylesheet">
+<link href="./result_files/demo.css" rel="stylesheet">
+<link href="./result_files/smart_wizard_all.css" rel="stylesheet">
+<link href="./result_files/bootstrap.min.css" rel="stylesheet">
+<link href="./result_files/bootstrap-grid.min.css" rel="stylesheet">
+<link href="./result_files/bootstrap-reboot.min.css" rel="stylesheet">
+<link href="./result_files/bootstrap-utilities.min.css" rel="stylesheet">
+<link href="./result_files/remixicon.css" rel="stylesheet">
+<link href="./result_files/style.min.css" rel="stylesheet">
+<link href="./result_files/responsive.css" rel="stylesheet">
+<link href="./result_files/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="./result_files/responsive.bootstrap4.min.css" rel="stylesheet">
+<link href="./result_files/buttons.bootstrap4.min.css" rel="stylesheet">
+<link href="./result_files/comman.css" rel="stylesheet">
+<link href="./result_files/jquery.multiselect.css" rel="stylesheet">
+<link href="./result_files/sweetalert.min.css" rel="stylesheet">    <style>
+        .loader {
+            background: rgb(255 255 255 / 80%) url(/frontend/web/loader2.gif);
+            background-position: center;
+            background-size: 5%;
+            background-repeat: no-repeat;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .activeR {
+            color: green !important;
+            font-weight: bold;
+        }
+
+
+
+        #mynavbar .navbar-nav .nav-link {
+            font-size: 15px;
+            color: rgb(255 255 255);
+            padding-right: 0.9rem;
+            padding-left: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-link1 {
+            font-weight: 400;
+            letter-spacing: -.1px;
+            height: 40px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            white-space: nowrap;
+            margin-top: 2px;
+            color: #262626;
+            border-bottom: dotted 1px #a1b1cb;
+        }
+
+        .nav-link1 svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            stroke-width: 1.5px
+        }
+
+        .nav-link1:hover,
+        .nav-link1:focus {
+            background-color: rgb(235 138 43);
+            color: #ffffff;
+        }
+
+        .nav-link1 span {
+            transition: all .3s
+        }
+
+        .ugc-board {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .header-main {
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+        }
+
+        .footer {
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+        }
+
+        .skin-dark .sub-link1 {
+            font-family: 'Roboto', sans-serif !important;
+            font-size: 14px !important;
+        }
+
+        .ri-user-line,
+        .ri-phone-line,
+        .ri-bank-card-line,
+        .ri-award-line,
+        .ri-medal-2-line,
+        .ri-gallery-upload-line,
+        .ri-checkbox-circle-line {
+            margin-right: 4px !important;
+        }
+
+        .col-form-label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px !important;
+        }
+
+        .card {
+            background-color: #fbfcfd;
+            border: none;
+        }
+
+        .navbar-nav {
+            margin-left: -10px;
+        }
+
+        .blink_me {
+            animation: blinker 4s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* label{font-weight:bold} */
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            /*Without this, clicking will make it sticky*/
+            pointer-events: none;
+        }
+    </style>
+    <link href="./result_files/font-awesome.min.css" rel="stylesheet">
+    <script src="./result_files/jquery.min.js.download"></script>
+<style>.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row;padding:0}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;padding:0;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em;padding:0}.swal2-popup.swal2-toast .swal2-styled{margin:.125em .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(100,150,200,.5)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:5px;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center;padding:0 1.8em}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0;padding:0 1.6em}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-loader{display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 transparent #2778c4 transparent}.swal2-styled{margin:.3125em;padding:.625em 1.1em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#2778c4;color:#fff;font-size:1.0625em}.swal2-styled.swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#d14529;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#757575;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 3px rgba(100,150,200,.5)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:5px;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close:focus{outline:0;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0 1.6em;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 0 3px rgba(100,150,200,.5)}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-input-label{display:flex;justify-content:center;margin:1em auto}.swal2-validation-message{align-items:center;justify-content:center;margin:0 -2.7em;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}</style></head>
+
+<body class="skin-dark animate">
+    <div class="loader" style="display:none;"></div>
+                    <div class="registration-main">
+            <div class="header-main navbar navbar-expand-md navbar-light bg-light row">
+                <div class="col-sm-4"> <a href="https://www.education.gov.in/" target="_blank"><img class="dept-higher-edu-logo img-fluid" src="./result_files/left.jpg" alt=""></a> </div>
+                 <div class="col-sm-4 text-center custom-text-logo"> राष्ट्रीय पात्रता सह प्रवेश परीक्षा (स्नातक) - 2024 <br> NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) - 2024 </div>
+                <div class="col-sm-4 text-end"> <a href="https://www.nta.ac.in/" target="_blank"><img class="nta-logo img-fluid" src="./result_files/nta-logo-new.png" alt=""></a> </div>
+            </div>
+
+            <nav class="navbar navbar-expand-sm navbar-dark topnavigation">
+                <div class="container-fluid">
+                    <a class="navbar-brand test-for" href="javascript:void(0)">NEET (UG) – 2024</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"> <span class="navbar-toggler-icon"></span> </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"> <a class="nav-link " href="https://neet.ntaonline.in/frontend/web/site/login"><i class="ri-home-8-line"></i> Home</a> </li>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle nav-link" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                                    Information Bulletin
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="https://exams.nta.ac.in/NEET/images/neet-ug-2024-draft-ib-09022024.pdf" target="_blank">Information Bulletin (Hindi)</a></li>
+                                    <li><a class="dropdown-item" href="https://exams.nta.ac.in/NEET/images/neet-ug-2024-draft-ib-09022024.pdf" target="_blank">Information Bulletin (English)</a></li>
+                                </ul>
+                            </div>
+                            <li class="nav-item">
+                                <a class="nav-link userActivityBtn" href="https://neet.ntaonline.in/frontend/web/contactus/index"><i class="ri-question-answer-line"></i> Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="content-body">
+            
+
+
+
+    
+    <title>Score Card List</title>
+    <style>
+        .qr-code {
+            height: 119px;
+            width: 133px;
+        }
+
+        /*this css work on print page default date time and page title print on page */
+        /*@page { size: auto;  margin: 5mm 5mm; }*/
+        /*End of this css work on print page default date time and page title print on page */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 22px;
+            color: #000;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .logo {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .logo_name {
+            float: left;
+            margin-top: 13px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        table tr td {
+            padding: 2px 5px 5px 10px;
+            border: 1px solid;
+        }
+
+        .centerContent {
+            text-align: center;
+        }
+
+        .footer,
+        .header-main,
+        .topnavigation {
+            display: none
+        }
+
+        marquee {
+            display: none;
+        }
+
+        .content-body {
+            padding: 0px !important;
+        }
+
+        @media print {
+            table {
+                page-break-inside: auto;
+                line-height: 13px;
+                font-size: 11px;
+            }
+
+            .no-qrcode {
+                display: none;
+            }
+
+            #printPageButton {
+                display: none;
+            }
+
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto
+            }
+
+            table tr td {
+                padding: 2px 3px 3px 5px;
+                border: 1px solid;
+            }
+
+            #printPageButton {
+                display: none;
+            }
+
+            .midlogo {
+                width: 150px;
+                font-size: 10px;
+                text-align: justify;
+                line-height: 20px;
+            }
+
+            .imp-point ol li {
+                font-size: 10px;
+                line-height: 10px;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            /* For mobile phones: */
+            .score-card2{
+                width:170%;
+            }
+            }
+    </style>
+    <link href="./result_files/css" rel="stylesheet">
+
+
+
+    <table class="score-table score-card2" width="100%" border="0" cellspacing="0" cellpadding="0" style=" margin-bottom: 2px;">
+        <tbody><tr>
+            <th align="left" scope="col" width="10%"><img src="./result_files/scorecard_leftimg.png" width="90" style="width: 150px;"></th>
+            <th align="center" scope="col" width="33%" style="font-size:13px;text-align: center;">
+                <span class="midlogo"><strong>
+                NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) - 2024 <br>Score Card
+                </strong></span>
+            </th>
+            <th align="right" scope="col" width="10%" style="font-size:14px;text-align: right;">
+                <img width="150" src="./result_files/scorecard_rightimg.png">
+            </th>
+        </tr>
+    </tbody></table>
+    <table class="score-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+            <th align="center" scope="col" style="font-size:14px;text-align: center;width:100%;" colspan="2">
+            </th>
+            <th>
+                <input type="button" id="printPageButton" value="Print" onclick="window.print()">
+            </th>
+        </tr>
+    </tbody></table>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border-color: #000;" class="score-table">
+        <tbody><tr>
+            <input type="hidden" value="240411144158" id="applicationNumber">
+            <td width="25%"><strong>Roll Number </strong></td>
+            <td width="17%">3107090300</td>
+            <td width="20%"><strong>Application No.</strong></td>
+            <td width="18%">240411144158</td>
+            <td rowspan="5" align="center" width="18%">
+                                <span id="newQRcode">
+                    <div id="qrcode-665fcc6de4afe" style="display:inline"><img crossorigin="anonymous" src="data:image/png;base64,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" width="195" height="195" style="width: 130px; height: 130px;"></div>                </span>
+            </td>
+            <td rowspan="5" align="center" width="18%">
+                    <img src="./result_files/D0001_1708777412.jpg" width="136" height="130" alt="user pic">                
+            </td>
+        </tr>
+        <tr>
+            <td align="left" scope="row"><strong>Candidate’s Name</strong></td>
+            <td colspan="3">PAWAR RITESH RAJU</td>
+        </tr>
+        <tr>
+            <td align="left" scope="row"><strong>Mother’s Name</strong></td>
+            <td>RADHABAI</td>
+            <td width="20%" scope="row"><strong>Date of Birth (DD/MM/YYYY)</strong></td>
+            <td width="18%">18-06-2005</td>
+        </tr>
+        <tr>
+            <td align="left" scope="row"><strong>Father’s Name</strong></td>
+            <td>RAJU</td>
+            <td width="25%" scope="row"><strong>Gender</strong></td>
+            <td width="17%"> MALE</td>
+        </tr>
+        <tr>
+            <td width="25%" scope="row"><strong>Person with Disability (PwD)</strong></td>
+            <td width="17%"> No</td>
+            <td width="20%" scope="row"><strong>Nationality</strong></td>
+            <td width="15%">INDIAN</td>
+        </tr>
+    </tbody></table>
+    <table class="score-table score-card2" width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border-color: #000;">
+        <tbody><tr>
+            <td width="20%" scope="row" colspan="2" align="left"><strong>Percentile Score Obtained</strong></td>
+            <td width="50%" scope="row" colspan="2" align="right"><small><i>B237E69D-6AA0-DF38-4BFB-61D8B35B354D</i></small></td>
+        </tr>
+        <tr>
+            <td width="20%" scope="row"><strong>Physics</strong></td>
+            <td width="10%" scope="row"> 65.9737273</td>
+            <td width="30%"><strong>Total Marks Obtained (out of 720)</strong></td>
+            <td width="20%" scope="row"> 337</td>
+        </tr>
+        <tr>
+            <td width="20%" align="left" scope="row"><strong>Chemistry</strong></td>
+            <td width="10%">
+             83.7222180            </td>
+            <td width="30%" align="left"><strong>Total Marks Obtained (out of 720) in Words</strong></td>
+            <td width="20%" scope="row">Three Hundred Thirty Seven Only</td>
+        </tr>
+        <tr>
+
+        </tr><tr>
+            <td width="20%" align="left" scope="row"><strong>Biology (Botany &amp; Zoology)</strong></td>
+            <td width="10%">
+             73.5486738            </td>
+            <td width="10%" align="left"><strong>Total Percentile Score Obtained in Words</strong></td>
+            <td width="40%" scope="row">Seventy Seven Point Six Four One Four Two Three Three Only</td>
+        </tr>
+
+        <tr>
+            <td width="20%" align="left" scope="row"><strong>Total</strong></td>
+            <td width="10%">
+             77.6414233            </td>
+            <td width="30%" align="left"><strong>NEET All India Rank</strong></td>
+            <td width="20%" scope="row"> 521087</td>
+        </tr>
+    </tbody></table>
+    <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border-color: #000;" class="score-table score-card2">
+        <tbody><tr>
+            <td width="20%" align="left" scope="row"><strong>All India Rank for Counselling</strong></td>
+            <td width="20%" align="left" scope="row"><strong>Category</strong></td>
+            <td width="20%" align="left" scope="row"><strong>Category Rank</strong></td>
+            <td width="20%" align="left" scope="row"><strong>PwD</strong></td>
+            <td width="20%" align="left" scope="row"><strong>Category-PwD Rank</strong></td>
+        </tr>
+        <tr>
+            <td width="20%" align="left" scope="row"> 521087</td>
+            <td width="20%" align="left" scope="row">OBC-(NCL) AS PER CENTRAL LIST</td>
+            <td width="20%" align="left" scope="row"> 237798</td>
+            <td width="20%" align="left" scope="row">No</td>
+            <td width="20%" align="left" scope="row">----</td>
+        </tr>
+    </tbody></table>
+    <table class="score-table score-card2" width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border-color: #000;">
+        <tbody><tr>
+        <td width="20%" scope="row" colspan="6" align="left"><strong>CUT - OFF PERCENTILE AND SCORE AS PER NMC/DCI/NCISM REGULATIONS</strong></td>
+        <td width="50%" scope="row" colspan="2" align="right"><small><i>NTA700877958</i></small></td>
+
+
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>Category</strong></td>
+            <td width="15%" align="left" scope="row"><strong>Cut off Percentile</strong></td>
+            <td width="15%" align="left" scope="row"><strong>Cut off Score</strong></td>
+            <td width="10%" align="left" scope="row"><strong>No. of Candidates</strong></td>
+            <td width="10%" align="left" scope="row"><strong>Category</strong></td>
+            <td width="15%" align="left" scope="row"><strong>Cut off Percentile</strong></td>
+            <td width="15%" align="left" scope="row"><strong>Cut off Score</strong></td>
+            <td width="10%" align="left" scope="row"><strong>No. of Candidates</strong></td>
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>UR/EWS</strong></td>
+            <td width="15%" align="left" scope="row">50<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">720-164</td>
+            <td width="10%" align="left" scope="row">1165904</td>
+            <td width="10%" align="left" scope="row">UR/EWS-PwD</td>
+            <td width="15%" align="left" scope="row">45<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">163-146</td>
+            <td width="10%" align="left" scope="row">455</td>
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>OBC</strong></td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">163-129</td>
+            <td width="10%" align="left" scope="row">100769</td>
+            <td width="10%" align="left" scope="row">OBC-PwD</td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">145-129</td>
+            <td width="10%" align="left" scope="row">270</td>
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>SC</strong></td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">163-129</td>
+            <td width="10%" align="left" scope="row">34326</td>
+            <td width="10%" align="left" scope="row">SC-PwD</td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">145-129</td>
+            <td width="10%" align="left" scope="row">55</td>
+        </tr>
+        <tr>
+            <td width="10%" align="left" scope="row"><strong>ST</strong></td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">163-129</td>
+            <td width="10%" align="left" scope="row">14478</td>
+            <td width="10%" align="left" scope="row">ST-PwD</td>
+            <td width="15%" align="left" scope="row">40<sup>th</sup> Percentile</td>
+            <td width="15%" align="left" scope="row">141-129</td>
+            <td width="10%" align="left" scope="row">11</td>
+        </tr>
+    </tbody></table>
+    <div style="float:left;margin-top:15px;font-size:12px;"><strong>DATE OF DECLARATION OF RESULT: </strong>  04.06.2024</div>
+    <div style="float:right;margin-top:15px;"><img src="./result_files/director.jpg" width="100" height="30"> <br><b>Senior Director,NTA</b> &nbsp;</div>
+    <br><br>
+    <div style="float: left; margin-top:15px; font-size: 12px;color:red"><strong>IMPORTANT INFORMATION: </strong></div>
+    <br><br>
+    <div class="imp-point score-table score-card2">
+        <ol style="text-align:justify;font-size:9px;line-height:10px;">
+            <li>Candidate particulars have been indicated as mentioned by her/him in the online Application Form, which is subject to verification by the admitting authorities.</li>
+            <li>Candidate, if found submitting wrong information or <b>tampering with this Score Card at any stage,</b> will be considered as using unfair practices. <b>NTA will cancel the candidature and take legal action as per applicable laws.</b></li>
+            <li>Under the UR Category, the candidates from other categories i.e. General-EWS, OBC, SC, ST, and PwD but meeting UR Cut off Percentile are also included.</li>
+            <li>In case of two or more candidates obtaining equal marks in NEET (UG) - 2024, the inter-se-merit of such candidates has been determined as per Chapter 15 {15.2} of Information Bulletin of NEET (UG) -2024 to generate NEET All India Rank. </li>
+            <li>NTA has declared only NEET All India Rank and All India Rank for Counselling. Counselling Authorities will invite applications from the successful candidates and prepare their own merit list as per their rules based on the All India Rank. Candidates may apply to the designated Counselling Authorities as per their eligibility. NTA has no role to play in this exercise.</li>
+            <li>Details of the various Counselling Authorities are given in Appendix II of the Information Bulletin. The same may also be confirmed from respective websites. Although, due care has been taken to put their correct addresses and contact details, NTA is not responsible for any changes therein.</li>
+            <li>In the NEET (UG) – 2024 result, the category of the candidates is as per details submitted by them in the online Application Form. In case, if the category of candidate falls under any other category in the State Category List, candidates may apply to designated Counselling Authorities with their category as per State Category List and designated Counselling Authorities will verify the same. The same is the case with domicile. Domicile will be governed by respective admitting authority rules. <b>NTA will NOT change any details of the candidates after the declaration of the result</b>.</li>
+            <li>All candidates are advised to remain in touch with the websites of Counselling Authorities for updates.</li>
+            <li>Qualified Candidates having Benchmark Disabilities may refer to Information Bulletin specifically Chapter 6 {6.3, 6.7}. It may be noted that the eligibility in the examination under the category "Persons with Disability" is purely provisional to appear in the examination and does NOT guarantee a seat to the candidate under the respective category. The candidature for admission to MBBS program under PwBD category under various colleges will be governed as per relevant NMC guidelines which are given under Appendix-H1 of Guidelines regarding Admission of Students with "Specified Disabilities '' under the Right of Persons with Disabilities Act, 2016 with respect to admission in MBBS course during post-examination and counselling process issued on 01.08.2023.</li>
+            <li>Qualifying in NEET (UG) - 2024 does not confer any right for admission to Medical/Dental Colleges. Selection of qualified candidates in NEET (UG) - 2024 for admission to Medical/Dental Colleges is subject to merit position and satisfying the admission criteria as laid down in the rules of the Central Government/State Government /Universities / Institutions concerned.</li>
+        </ol>
+    </div>
+
+    <div style="float: left; font-size: 10px;color:red;margin-top: -15px;"><strong>Note: </strong></div><br>
+    <div class="imp-point score-table score-card2" style="margin-top:-14px;">
+        <ol style="font-size:9px;line-height:10px;">
+            <li><b>Percentile Scores</b> are based on the relative performance of all those who appeared for the examination.</li>
+            <li><b>The Percentile scores of a Candidate have been calculated as follows:</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b style="text-decoration: underline;">100 X Number of candidates appeared in the examination with raw score LESS than the candidate</b><br><b>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total number of candidates who appeared in the examination.</b>
+            </li>
+            <li><b>The Percentile Score</b> is NOT the same as the percentage of marks obtained.</li>
+            <li><b>Total Percentile Score</b> is <b>NOT</b> an aggregate or average of the Percentile Scores of individual subjects.</li>
+        </ol>
+    </div>
+
+
+<script src="./result_files/jquery.min(1).js.download"></script>
+<script>
+    $(document).ready(function() {
+        //cntrl + p disable
+        $(document).keydown(function(event) {
+            if (event.ctrlKey == true && (event.which == '80')) {
+                event.preventDefault();
+            }
+        });
+
+        $("#printPageButton").click(function() {
+        
+            var getQRText = document.querySelector("#newQRcode");
+            var barcodeValue = getQRText.querySelector("div").innerHTML;
+            var getImgText = $('#emptyImage').html();
+            if (($.trim().barcodeValue === "") || ($.trim().getImgText == "")) {
+                alert("Image / Application Number QR Section is blank! Please regenerate your Score Card.");
+                window.location.href = "/frontend/web/scorecard/index";
+                return;
+            }
+            //    For log generate
+            var applicationNumber = $('#applicationNumber').val();
+            setTimeout(function() {
+                $.ajax({
+                    url: 'print-click',
+                    type: 'POST',
+                    data: {
+                        applicationNumber: applicationNumber,
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }, 2000)
+            $("#print-btn-show").click();
+        });
+
+        setTimeout(() => {
+            var getQRTextOut = document.querySelector("#newQRcode");
+            var barcodeValueOut = getQRTextOut.querySelector("div").innerHTML;
+            var getImgText = $('#emptyImage').html();
+            if (($.trim().barcodeValueOut === "") || ($.trim().getImgText == "")) {
+                alert("Image / Application Number QR Section is blank!, Please regenerate your Score Card.");
+                window.location.href = "/frontend/web/scorecard/index";
+                var divs = document.querySelectorAll('.score-table');
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].classList.add('no-qrcode');
+                }
+                return;
+            }
+        }, 2000);
+    });
+</script>
+
+
+        </div>
+        <!-- content-body -->
+        
+    
+    <div class="footer row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="https://neet.ntaonline.in/frontend/web/scorecard/index#"><img class="nta-logo img-fluid" src="./result_files/nta-logo-new.webp" alt=""></a>
+        </div>
+    </div>
+
+  <!-- Modal Aadhaar Reverify Code-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please Fill Aadhaar Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="contact-form" action="https://neet.ntaonline.in/frontend/web/scorecard/index" method="post">
+<input type="hidden" name="_csrf-frontend" value="FZsKRUvE0BDSQYU6H6Du5EpycmtGbwLzIaSQQx3SQacjzjICGojjR6svtUxt1YORCF8DDQQcM59Yy6UHWJkw9Q==">                    <span id="aadhaarlogin">
+                        <div class="row mb-3 AadhaarNumberhide">
+                            <label class="col-sm-4 col-form-label text-end">Aadhaar Number<span class="astric-sign">*</span></label>
+                            <div class="col-sm-5">
+                                <input type="text" name="AadhaarNumber" placeholder="Enter Aadhaar Number" class="form-control form-control-sm" id="AadhaarNumber" minlength="12" maxlength="12" onkeypress="return blockSpecialChar(event,&#39;numeric&#39;)" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row mb-3" id="divMessage" style="display:none;">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5">
+                                <span id="spnResult" style="color: green; font-weight: bold; font-size: 17px;"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3 AadhaarNumberhide">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5">
+                                <span id="btnGenerateOTP" class="btn btn-sm btn-warning" onclick="onGenerateOTPRe()">Generate OTP</span>
+                            </div>
+                        </div>
+                        <div class="row mb-3" style="display:none;" id="otpdiv">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">OTP<span class="astric-sign">*</span></label>
+                            <div class="col-sm-5">
+                                <input type="text" name="Otp" placeholder="Enter OTP" class="form-control form-control-sm" id="Otp" minlength="6" maxlength="6" onkeypress="return blockSpecialChar(event,&#39;numeric&#39;)" autocomplete="off">
+
+                                <label class="control-label" style="text-align:left;margin-left:5px;font-size:14px;font-weight:bold">Please validate the OTP within 10 minutes of receiving it</label>
+                            </div>
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5"><br>
+                                <span id="btnValidateOTP" class="btn btn-sm btn-warning" disabled="" onclick="onValidateOtpRe()">Validate OTP</span>
+                            </div>
+                        </div>
+                    </span>
+                    </form>                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <input type="hidden" name="ApplicationNo" id="ApplicationNo" value="">
+   <input type="hidden" name="ReferenceID" id="ReferenceID" value="">
+    <script>
+        $(document).ready(function() {
+             if ($("#ReferenceID").val() == '0') {
+                $('#exampleModal').modal('show');   
+                setInterval(function() {$('#exampleModal').modal('show');}, 10000);            
+            }
+            
+        });
+        $(".close").on('click', function() {
+            $("#exampleModal").modal('hide');
+        });
+        var otpTxnId = null;
+
+        function onGenerateOTPRe() {
+
+            var aadhaarNumber = $('#AadhaarNumber').val();
+            if (aadhaarNumber.trim().length !== 12) {
+                alert("Please enter valid aadhaar number")
+                $('#AadhaarNumber').focus();
+                return;
+            }
+            $.ajax({
+                type: 'POST',
+                url: "/frontend/web/aadhaarreverify/generateotp",
+                data: {
+                    AADHAARNUMBER: aadhaarNumber
+                },
+                "beforeSend": function(response) {
+                    SimpleLoading.start();
+                },
+                success: function(data) {
+                    var resp = JSON.parse(data);
+                    SimpleLoading.stop();
+                    if (resp.error) {
+                        $('#spnResult').html(resp.errorMessage);
+                        $('#spnResult').css("color", "red");
+                        $('#divMessage').show();
+                        $("#otpdiv").hide();
+                        $(".AadhaarNumberhide").show();
+                        return false;
+                    }
+
+                    otpTxnId = resp.otpTxnId;
+                    // console.log(otpTxnId);
+                    var message = "OTP send successfully";
+                    var mobileAdded = false;
+                    if (resp.maskedMobile !== undefined && resp.maskedMobile !== "" && resp.maskedMobile !== "NA" && resp.maskedMobile !== null) {
+                        message = message + " to " + resp.maskedMobile;
+                        mobileAdded = true;
+                    }
+
+                    if (resp.maskedEmail !== undefined && resp.maskedEmail !== "" && resp.maskedEmail !== null) {
+                        if (mobileAdded) {
+                            message = message + " and";
+                        } else {
+                            message = message + " to";
+                        }
+
+                        message = message + " " + resp.maskedEmail;
+                    }
+
+
+                    $('#spnResult').html(message);
+                    $('#spnResult').css("color", "green");
+                    $('#divMessage').show();
+                    $("#otpdiv").show();
+                    $(".AadhaarNumberhide").hide();
+                    $('#btnGenerateOTP').attr("disabled", true);
+                    $('#btnValidateOTP').removeAttr("disabled");
+                    $('#btnCancel').removeAttr("disabled");
+                    $('#Otp').removeAttr("disabled");
+                },
+                error: function(xhr, textStatus, error) {
+                    $('#spnResult').html(error.message);
+                    $('#spnResult').css("color", "red");
+                    $('#divMessage').show();
+                    return false;
+                }
+            });
+        }
+
+        function onValidateOtpRe() {
+            var aadhaarNumber = $('#AadhaarNumber').val();
+            var otpValue = $('#Otp').val();
+            if (otpValue == '' || otpValue.trim().length !== 6) {
+                $('#Otp').focus();
+                return false;
+            }
+            $.ajax({
+                type: 'POST',
+                url: "/frontend/web/aadhaarreverify/validateotp",
+                data: {
+                    AADHAARNUMBER: aadhaarNumber,
+                    OTPVALUE: otpValue,
+                    OTPTXNID: otpTxnId,
+                },
+                "beforeSend": function(response) {
+                    SimpleLoading.start();
+                },
+                success: function(data) {
+                    var resp = JSON.parse(data);
+                    console.log(resp);
+                    if (resp.error) {
+                        $('#spnResult').html(resp.errorMessage);
+                        $('#spnResult').css("color", "red");
+                        $('#divMessage').show();
+                        SimpleLoading.stop();
+                        return false;
+                    }
+                },
+                error: function(xhr, textStatus, error) {
+                    $('#spnResult').html(error.message);
+                    $('#spnResult').css("color", "red");
+                    $('#divMessage').show();
+                    SimpleLoading.stop();
+                    return false;
+                }
+            });
+        }
+    </script>
+
+    <script>
+       $(document).ready(function() {
+           const channel = new BroadcastChannel('tab');
+           channel.postMessage('another-tab');
+           channel.addEventListener('message', (msg) => {
+               if (msg.data === 'another-tab') {
+                   // message received from 2nd tab
+                   alert('Cannot open multiple instances.You are logged out!');
+                   $.ajax({
+                       type: "post",
+                       url: '',
+                       data: {},
+                       cache: false,
+                       success: function(data) {
+
+                       }
+                   });
+                   window.location.href = "";
+               }
+           });
+       });
+
+        		document.onkeydown = function(e) {
+        		  if(event.keyCode == 123) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		}
+
+        		document.addEventListener('contextmenu', function(e){
+        		e.preventDefault();
+        		});
+    </script>
+    <script src="./result_files/jquery.js.download"></script>
+<script src="./result_files/yii.js.download"></script>
+<script src="./result_files/kjua-0.9.0.min.js.download"></script>
+<script src="./result_files/simple-loading.min.js.download"></script>
+<script src="./result_files/demo.js.download"></script>
+<script src="./result_files/jquery.smartWizard.min.js.download"></script>
+<script src="./result_files/jquery.image-popup.js.download"></script>
+<script src="./result_files/bootstrap.bundle.min.js.download"></script>
+<script src="./result_files/feather.min.js.download"></script>
+<script src="./result_files/perfect-scrollbar.min.js.download"></script>
+<script src="./result_files/script.js.download"></script>
+<script src="./result_files/jquery.dataTables.min.js.download"></script>
+<script src="./result_files/dataTables.bootstrap4.min.js.download"></script>
+<script src="./result_files/dataTables.responsive.min.js.download"></script>
+<script src="./result_files/responsive.bootstrap4.min.js.download"></script>
+<script src="./result_files/dataTables.buttons.min.js.download"></script>
+<script src="./result_files/buttons.bootstrap4.min.js.download"></script>
+<script src="./result_files/comman.js.download"></script>
+<script src="./result_files/bootstrap.bundle.min(1).js.download"></script>
+<script src="./result_files/jquery.multiselect.js.download"></script>
+<script src="./result_files/sweetalert2.all.min.js.download"></script>
+<script src="./result_files/yii.activeForm.js.download"></script>
+<script>jQuery(function ($) {
+
+// Handle QRCode for div qrcode-665fcc6de4afe<F5>
+var cfg = {"text":"https://neet.ntaonline.in/frontend/web/scorecard/resultqr?applicationNumber=240411144158&apprefno=NTA700877958","render":"image","crisp":false,"minVersion":1,"ecLevel":"M","size":130,"ratio":null,"fill":"#000000","back":"#fff","rounded":50,"quiet":0,"mode":"plain","mSize":10,"mPosX":50,"mPosY":50,"label":"no label","fontname":"Arial","fontcolor":"#333","image":null};
+$('#qrcode-665fcc6de4afe').kjua(cfg);
+jQuery('#contact-form').yiiActiveForm([], {"errorSummary":".alert.alert-danger","errorCssClass":"is-invalid","successCssClass":"is-valid","validationStateOn":"input"});
+
+        $(document).ready(function () {
+            $("#refresh_captcha").click(function (event) {
+                event.preventDefault();
+                $(this).parent().children('img').click();
+                $("#candidate-verifycode").val("");
+                $("#candidate-verifycode").removeClass("is-valid")
+            })
+        });
+
+        $(document).ready(function (){
+            $(".form-control").addClass("form-control-sm");
+            $("#refresh_captcha").click();
+        });
+
+        $(document).ready(function () {
+            $(".userActivityBtn").click(function (event) {
+                console.log("test-main.php");
+                //event.preventDefault()
+              var currentURL   = $(location).attr("href");
+                $.ajax({
+                  url: "/frontend/web/useracitivity/useract" ,
+                  type: "post",
+                  data: {
+                        moduleName: $(this).attr("data-modulename"),  
+                        activityName: $(this).attr("data-activityname"), 
+                        url: currentURL,  
+                        _csrf : "<?=Yii::$app->request->getCsrfToken()?>"
+                      },
+                  success: function (data) {
+                     console.log(data);
+                  }
+              });
+            })
+          });
+
+      
+});</script>
+    
+
+
+<div id="edwinhaq_simple_loading" class="simple-loading simple-loading-default" style="display: none;"></div></body></html>

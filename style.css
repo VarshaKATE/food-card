@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 14px;
+    background-color: lightcoral;
+
+}
+
+main{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.main-container{
+    min-width: 600px;
+    height: 450px;
+    margin: auto;
+    box-shadow:  0 1px 1px -1px rgba(0, 0, 0, 0.22) ;
+    background-color: white;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: row;  
+}
+
+.image{
+    width: 300px;
+    background-image: url(./img/pizza.avif);
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.rite-side-contain{
+    width: 300px;
+    display: flex;
+    
+}
+
+.contain-fill-top{
+   display: flex;
+   justify-content: space-between;
+   margin-left: 10px;
+   /* padding: 10px; */
+   color: tomato;
+}
+
+.main-heading{
+    margin-left: 12px;
+    padding-top: 10px;
+    font-family:  cursive;
+    text-shadow: 2px 2px burlywood;
+    font-size: 20px;
+}
+
+.main-dis{
+    margin-right: 50px;
+}
+.para{
+    margin-left:12px ;
+    font-weight: bold;
+    color: lightgray;
+    line-height: 1.5;
+}
+
+
+
+button{
+    margin-left: 35%;
+    width: 20%;
+    height: 30px;
+    border: none;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+@media (width: 400px){
+    .main-container{
+        display: block;
+        
+    }
+}
